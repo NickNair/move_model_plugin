@@ -46,4 +46,4 @@ To use the plugin add the following tag with the respective waypoints to the mod
 ## Example
 
 A box model animated using the plugin 
-![](animated_box.gif)
+![](MoveModel/animated_box.gif)
