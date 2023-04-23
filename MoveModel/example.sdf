@@ -1,0 +1,146 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="actors">
+    <plugin
+      filename="gz-sim-physics-system"
+      name="gz::sim::systems::Physics">
+    </plugin>
+    <plugin
+      filename="gz-sim-scene-broadcaster-system"
+      name="gz::sim::systems::SceneBroadcaster">
+    </plugin>
+
+    
+
+    <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0.0 0.0 1</normal>
+            </plane>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <plane>
+              <normal>0.0 0.0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.8 0.8 0.8 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+     <model name="box">
+     <static>true</static>
+
+     <plugin filename="MoveModel"
+              name="move_model::MoveModel">
+
+         <waypoint>
+          <time>0</time>
+          <pose>0 0 0 0 0 0</pose>
+        </waypoint>
+        <waypoint>
+          <time>2.5</time>
+          <pose>0 10 5 0 0.71 0</pose>
+        </waypoint>
+        <waypoint>
+          <time>5</time>
+          <pose>0 0 10 0 1.54 0</pose>
+        </waypoint>
+        <waypoint>
+          <time>7.5</time>
+          <pose>0 -10 5 0 -0.71 0</pose>
+        </waypoint>
+        <waypoint>
+          <time>10</time>
+          <pose>2 -10 12 0 0.71 2.12</pose>
+        </waypoint> 
+        <waypoint>
+          <time>12</time>
+          <pose>0 0 0 0 0 0</pose>
+        </waypoint>     
+      </plugin>
+       
+        
+      
+      <link name="dome">
+      <static>true</static>
+
+     
+        
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>1 1 1</size>
+            </box>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>1 1 1</size>
+            </box>
+          </geometry>
+        </visual>
+      </link>
+
+      
+    </model>
+
+
+     <!-- <model name="Wall">
+     <static>false</static>
+
+     <pose>0 5 0 0 0 0</pose>
+     
+      
+      <link name="Wall">
+      <static>false</static>
+        <pose>0 0 0.5 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>20 0.2 10</size>
+            </box>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>20 0.2 10</size>
+            </box>
+          </geometry>
+        </visual>
+      </link>
+
+      
+    </model> -->
+
+    
+  </world>
+</sdf>
